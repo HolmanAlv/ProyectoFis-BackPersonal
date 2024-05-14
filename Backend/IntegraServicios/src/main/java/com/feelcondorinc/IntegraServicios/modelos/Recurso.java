@@ -1,99 +1,23 @@
 package com.feelcondorinc.IntegraServicios.modelos;
+
 import java.util.Date;
-
-class Reserva {
-    private Usuario afiliado;
-    private Recurso recurso;
-    private Date diaReserva;
-    private int inicioHoraReserva;
-    private int finHoraReserva;
-    private Empleado empleadoResponsable;
-    private Date horaPrestamo;
-    private Date horaDevolucion;
-
-    public Reserva(Usuario afiliado, Recurso recurso, Date diaReserva, int inicioHoraReserva, int finHoraReserva) {
-        this.afiliado = afiliado;
-        this.recurso = recurso;
-        this.diaReserva = diaReserva;
-        this.inicioHoraReserva = inicioHoraReserva;
-        this.finHoraReserva = finHoraReserva;
-    }
-
-    public Usuario getAfiliado() {
-        return afiliado;
-    }
-
-    public void setAfiliado(Usuario afiliado) {
-        this.afiliado = afiliado;
-    }
-
-    public Recurso getRecurso() {
-        return recurso;
-    }
-
-    public void setRecurso(Recurso recurso) {
-        this.recurso = recurso;
-    }
-
-    public Date getDiaReserva() {
-        return diaReserva;
-    }
-
-    public void setDiaReserva(Date diaReserva) {
-        this.diaReserva = diaReserva;
-    }
-
-    public int getInicioHoraReserva() {
-        return inicioHoraReserva;
-    }
-
-    public void setInicioHoraReserva(int inicioHoraReserva) {
-        this.inicioHoraReserva = inicioHoraReserva;
-    }
-
-    public int getFinHoraReserva() {
-        return finHoraReserva;
-    }
-
-    public void setFinHoraReserva(int finHoraReserva) {
-        this.finHoraReserva = finHoraReserva;
-    }
-
-    public Empleado getEmpleadoResponsable() {
-        return empleadoResponsable;
-    }
-
-    public void setEmpleadoResponsable(Empleado empleadoResponsable) {
-        this.empleadoResponsable = empleadoResponsable;
-    }
-
-    public Date getHoraPrestamo() {
-        return horaPrestamo;
-    }
-
-    public void setHoraPrestamo(Date horaPrestamo) {
-        this.horaPrestamo = horaPrestamo;
-    }
-
-    public Date getHoraDevolucion() {
-        return horaDevolucion;
-    }
-
-    public void setHoraDevolucion(Date horaDevolucion) {
-        this.horaDevolucion = horaDevolucion;
-    }
-}
 
 
 public class Recurso {
+    
+    private String nombre;
+    private String descripcion;
     private HorarioDisponibilidad horarioDisponible;
     private Unidad unidadAsociada;
-    private int vecesPrestado;
+    private static int vecesPrestado;
+    
 
-    public Recurso(HorarioDisponibilidad horarioDisponible, Unidad unidadAsociada, int vecesPrestado) {
+    public Recurso(String nombre, String descripcion, HorarioDisponibilidad horarioDisponible, Unidad unidadAsociada) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
         this.horarioDisponible = horarioDisponible;
         this.unidadAsociada = unidadAsociada;
-        this.vecesPrestado = vecesPrestado;
+        vecesPrestado = 0;
     }
 
     public HorarioDisponibilidad getHorarioDisponible() {
@@ -116,10 +40,10 @@ public class Recurso {
         return vecesPrestado;
     }
 
-    public void setVecesPrestado(int vecesPrestado) {
-        this.vecesPrestado = vecesPrestado;
-    }
 
+
+
+    
     public Reserva reservarRecurso(Usuario afiliado, Date diaReserva, int inicioHoraReserva, int finHoraReserva) {
         // Verificar si el recurso está disponible en el horario especificado
         if (horarioDisponible.estaDisponible(diaReserva, inicioHoraReserva, 0)) {

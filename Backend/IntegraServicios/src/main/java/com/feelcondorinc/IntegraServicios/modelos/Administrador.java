@@ -7,8 +7,8 @@ public class Administrador extends Usuario implements AccionarAdministrador {
     private Unidad unidad;
     private HorarioDisponibilidad horarioLaboral;
 
-    public Administrador(int idUsuario, String contrasenia, String nombre, Unidad unidad, HorarioDisponibilidad horarioLaboral) {
-        super(idUsuario, contrasenia, nombre);
+    public Administrador(int idUsuario, String contrasenia, RolUsuario rolUsuario, Unidad unidad, HorarioDisponibilidad horarioLaboral) {
+        super(idUsuario, contrasenia, rolUsuario);
         this.unidad = unidad;
         this.horarioLaboral = horarioLaboral;
     }
