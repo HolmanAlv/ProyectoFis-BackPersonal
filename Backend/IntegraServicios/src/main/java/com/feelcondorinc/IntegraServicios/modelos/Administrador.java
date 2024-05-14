@@ -1,6 +1,7 @@
 package com.feelcondorinc.IntegraServicios.modelos;
 import java.util.Date;
 import java.util.List;
+import com.feelcondorinc.IntegraServicios.interfaces.AccionarAdministrador;
 
 
 public class Administrador extends Usuario implements AccionarAdministrador {
@@ -29,18 +30,18 @@ public class Administrador extends Usuario implements AccionarAdministrador {
         this.horarioLaboral = horarioLaboral;
     }
     // Lógica para asignar un recurso a la unidad
-    @Override
+
     public void asignarRecursoAUnidad(Unidad unidad, int intervaloMinimo, Date dia, int inicioRangoHorario, int finRangoHorario) {
         // Lógica para asignar un recurso a la unidad aquí
     }
 
     // Implementación de los métodos de la interfaz AccionarAdministrador
-    @Override
+
     public void crearEmpleado() {
         // Lógica para crear un nuevo empleado
     }
 
-    @Override
+
     public void crearAfiliado() {
         // Lógica para crear un nuevo afiliado
     }

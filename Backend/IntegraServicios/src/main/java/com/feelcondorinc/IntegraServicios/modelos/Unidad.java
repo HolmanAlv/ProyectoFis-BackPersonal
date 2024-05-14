@@ -78,5 +78,10 @@ public class Unidad {
         }
         return recursosDisponibles;
     }
+
+    public List<Reserva> consultarReservasEnUnidad() {
+        //Logica para consultar reservas en unidad
+        return null;
+    }
 }
 

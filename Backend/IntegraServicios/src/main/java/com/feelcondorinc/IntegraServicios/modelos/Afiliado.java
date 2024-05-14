@@ -2,6 +2,7 @@ package com.feelcondorinc.IntegraServicios.modelos;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import com.feelcondorinc.IntegraServicios.interfaces.AccionarAfiliado;
 
 public class Afiliado extends Usuario implements AccionarAfiliado {
     private String nombreAfiliado;
@@ -49,17 +50,17 @@ public class Afiliado extends Usuario implements AccionarAfiliado {
         this.numeroContacto = numeroContacto;
     }
 
-    @Override
+
     public Reserva reservarRecurso(Recurso recurso, Date diaReserva, int inicioHoraReserva, int finHoraReserva) {
         return recurso.reservarRecurso(this, diaReserva, inicioHoraReserva, finHoraReserva);
     }
 
-    @Override
     public List<Reserva> consultarReservasActivas() {
         List<Reserva> reservasActivas = new ArrayList<>();
     
         // Obtener todas las reservas del afiliado
-        List<Reserva> todasLasReservas = RepositorioReservas.obtenerReservasPorAfiliado(this);
+        /**
+        List<Reserva> todasLasReservas = ReservasRepository.obtenerReservasPorAfiliado(this);
     
         // Filtrar las reservas activas
         for (Reserva reserva : todasLasReservas) {
@@ -67,12 +68,13 @@ public class Afiliado extends Usuario implements AccionarAfiliado {
             reservasActivas.add(reserva);
             }
         }
+         */
     
         return reservasActivas;
     }
 
-    @Override
     public void cancelarReserva(Reserva reserva) {
+        /**
         // Lógica para cancelar una reserva
         // Verificar si la reserva está en estado pendiente o confirmada
         if (reserva.getEstadoReserva() == EstadoReserva.PENDIENTE || reserva.getEstadoReserva() == EstadoReserva.CONFIRMADA) {
@@ -82,6 +84,7 @@ public class Afiliado extends Usuario implements AccionarAfiliado {
             // La reserva no puede ser cancelada en su estado actual
             throw new IllegalStateException("La reserva no puede ser cancelada en su estado actual.");
         }
+         */
     }
 }
 

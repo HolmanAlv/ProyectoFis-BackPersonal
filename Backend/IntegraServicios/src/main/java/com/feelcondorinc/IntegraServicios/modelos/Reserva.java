@@ -3,7 +3,7 @@ package com.feelcondorinc.IntegraServicios.modelos;
 
 import java.util.Date;
 
-class Reserva {
+public class Reserva {
     private Usuario afiliado;
     private Recurso recurso;
     private Date diaReserva;
@@ -12,13 +12,15 @@ class Reserva {
     private Empleado empleadoResponsable;
     private Date horaPrestamo;
     private Date horaDevolucion;
+    private EstadoReserva estadoReserva;
 
-    public Reserva(Usuario afiliado, Recurso recurso, Date diaReserva, int inicioHoraReserva, int finHoraReserva) {
+    public Reserva(Usuario afiliado, Recurso recurso, Date diaReserva, int inicioHoraReserva, int finHoraReserva, EstadoReserva estadoReserva) {
         this.afiliado = afiliado;
         this.recurso = recurso;
         this.diaReserva = diaReserva;
         this.inicioHoraReserva = inicioHoraReserva;
         this.finHoraReserva = finHoraReserva;
+        this.estadoReserva = estadoReserva;
     }
 
     public Usuario getAfiliado() {
@@ -83,5 +85,14 @@ class Reserva {
 
     public void setHoraDevolucion(Date horaDevolucion) {
         this.horaDevolucion = horaDevolucion;
+    }
+
+
+    public EstadoReserva getEstadoReserva() {
+        return estadoReserva;
+    }
+
+    public void setEstadoReserva(EstadoReserva estadoReserva) {
+        this.estadoReserva = estadoReserva;
     }
 }

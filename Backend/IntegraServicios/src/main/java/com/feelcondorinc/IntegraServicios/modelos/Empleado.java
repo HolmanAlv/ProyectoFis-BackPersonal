@@ -1,5 +1,8 @@
 package com.feelcondorinc.IntegraServicios.modelos;
+
 import java.util.List;
+import com.feelcondorinc.IntegraServicios.interfaces.AccionarEmpleado;
+
 
 public class Empleado extends Usuario implements AccionarEmpleado {
     private Unidad unidad;
@@ -27,7 +30,6 @@ public class Empleado extends Usuario implements AccionarEmpleado {
         this.horarioLaboral = horarioLaboral;
     }
 
-    @Override
     public List<Reserva> consultarReservasEnUnidad() {
         return unidad.consultarReservasEnUnidad();
     }
