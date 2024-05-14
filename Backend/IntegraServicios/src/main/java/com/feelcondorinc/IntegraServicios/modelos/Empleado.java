@@ -5,8 +5,8 @@ public class Empleado extends Usuario implements AccionarEmpleado {
     private Unidad unidad;
     private HorarioDisponibilidad horarioLaboral;
 
-    public Empleado(int idUsuario, String contrasenia, String nombre, Unidad unidad, HorarioDisponibilidad horarioLaboral) {
-        super(idUsuario, contrasenia, nombre);
+    public Empleado(int idUsuario, String contrasenia, RolUsuario rolUsuario, Unidad unidad, HorarioDisponibilidad horarioLaboral) {
+        super(idUsuario, contrasenia, rolUsuario);
         this.unidad = unidad;
         this.horarioLaboral = horarioLaboral;
     }

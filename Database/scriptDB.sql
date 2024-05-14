@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      PostgreSQL 9.x                               */
-/* Created on:     28/04/2024 9:09:15 p. m.                     */
+/* Created on:     28/04/2024 9:09:15 p.ï¿½m.                     */
 /*==============================================================*/
 
 
@@ -149,7 +149,6 @@ IDUNIDAD
 create table HORARIOS (
    IDHORARIO            NUMERIC              not null,
    IDHORARIOSDISPONIBLES NUMERIC              not null,
-   DIASEMANA            VARCHAR(20)          not null,
    HORAINICIAL          NUMERIC              not null,
    MINUTOINICIAL        NUMERIC              not null,
    HORAFINAL            NUMERIC              not null,

@@ -6,12 +6,10 @@ import java.util.ArrayList;
 
 
 public class HorarioDisponibilidad {
+
     private List<Reserva> reservasActivas;
 
-    public HorarioDisponibilidad() {
-        this.reservasActivas = new ArrayList<>();
-    }
-
+    
     public List<Reserva> getReservasActivas() {
         return reservasActivas;
     }
@@ -20,6 +18,18 @@ public class HorarioDisponibilidad {
     private Date fechaFin;
     private List<Horario> horarioDiario;
     private EstadoRecurso estado;
+    
+    public HorarioDisponibilidad() {
+        this.reservasActivas = new ArrayList<>();
+    }
+
+    public HorarioDisponibilidad(int idElemento, Date fechaInicio, Date fechaFin, List<Horario> horarioDiario) {
+        this.idElemento = idElemento;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.horarioDiario = horarioDiario;
+        this.estado = null;
+    }
 
     public HorarioDisponibilidad(int idElemento, Date fechaInicio, Date fechaFin, List<Horario> horarioDiario, EstadoRecurso estado) {
         this.idElemento = idElemento;
