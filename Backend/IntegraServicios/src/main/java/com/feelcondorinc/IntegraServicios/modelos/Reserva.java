@@ -14,13 +14,12 @@ public class Reserva {
     private Date horaDevolucion;
     private EstadoReserva estadoReserva;
 
-    public Reserva(Usuario afiliado, Recurso recurso, Date diaReserva, int inicioHoraReserva, int finHoraReserva, EstadoReserva estadoReserva) {
+    public Reserva(Usuario afiliado, Recurso recurso, Date diaReserva, int inicioHoraReserva, int finHoraReserva) {
         this.afiliado = afiliado;
         this.recurso = recurso;
         this.diaReserva = diaReserva;
         this.inicioHoraReserva = inicioHoraReserva;
         this.finHoraReserva = finHoraReserva;
-        this.estadoReserva = estadoReserva;
     }
 
     public Usuario getAfiliado() {
