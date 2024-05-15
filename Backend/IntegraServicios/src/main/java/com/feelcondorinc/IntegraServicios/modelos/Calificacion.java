@@ -8,6 +8,8 @@ public class Calificacion {
     private int tratoPersonal;
     private String observacion;
 
+    
+
     public Calificacion(int idCalificacion, Usuario usuario, Usuario empleadoACalificar, int cumplimientoHorarios, int calidadRecurso, int tratoPersonal, String observacion) {
         this.idCalificacion = idCalificacion;
         this.usuario = usuario;
@@ -81,5 +83,9 @@ public class Calificacion {
         this.tratoPersonal = tratoPersonal;
         this.observacion = observacion;
         // Se puede agregar lógica para almacenar la calificación en una base de datos :)
+    }
+
+    public Calificacion() {
+        // Constructor vacío necesario para JPA y Spring Data
     }
 }

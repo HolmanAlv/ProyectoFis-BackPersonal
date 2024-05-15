@@ -2,16 +2,18 @@ package com.feelcondorinc.IntegraServicios.modelos;
 public class Usuario {
     private int idUsuario;
     private String contrasenia;
-    private RolUsuario rolUsuario;
+    private String nombre;
+    private String correoElectronico;
+    private String rolUsuario;
 
-    public Usuario(int idUsuario, String contrasenia, RolUsuario rolUsuario) {
+    public Usuario(int idUsuario, String contrasenia, String nombre) {
         this.idUsuario = idUsuario;
         this.contrasenia = contrasenia;
-        this.rolUsuario = rolUsuario;
+        this.nombre = nombre;
     }
 
-   
     public Usuario() {
+        // Constructor sin argumentos
     }
 
     public int getIdUsuario() {
@@ -22,6 +24,14 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getContrasenia() {
         return contrasenia;
     }
@@ -30,15 +40,22 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public RolUsuario getRolUsuario() {
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getRolUsuario() {
         return rolUsuario;
     }
 
-    public void setRolUsuario(RolUsuario rolUsuario) {
+    public void setRolUsuario(String rolUsuario) {
         this.rolUsuario = rolUsuario;
     }
 
-    
     public void IngresarAlSistema() {
         // Lógica para el ingreso al sistema aquí
     }
@@ -46,4 +63,11 @@ public class Usuario {
     public void RealizarAccionEspecifica() {
         // Lógica para realizar acciones específicas aquí
     }
+    public static class RolUsuario {
+        public static final String ADMINISTRADOR = "Administrador";
+        public static final String EMPLEADO = "Empleado";
+        public static final String AFILIADO = "Afiliado";
+    }
+
 }
+

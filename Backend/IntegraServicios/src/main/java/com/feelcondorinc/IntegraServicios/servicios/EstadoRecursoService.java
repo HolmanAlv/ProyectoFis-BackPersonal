@@ -2,7 +2,6 @@ package com.feelcondorinc.IntegraServicios.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import com.feelcondorinc.IntegraServicios.repositorios.EstadoRecursoRepository;
 import com.feelcondorinc.IntegraServicios.modelos.EstadoRecurso;
@@ -33,4 +32,9 @@ public class EstadoRecursoService {
     public void deleteById(Long id) {
         estadoRecursoRepository.deleteById(id);
     }
+
+    public EstadoRecurso findByDiaSemana(String diaSemana) {
+        return estadoRecursoRepository.findByDiaSemana(diaSemana);
+    }
 }
+

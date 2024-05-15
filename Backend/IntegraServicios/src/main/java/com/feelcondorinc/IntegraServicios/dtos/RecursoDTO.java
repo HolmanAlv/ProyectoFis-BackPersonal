@@ -4,6 +4,7 @@ public class RecursoDTO {
     private HorarioDisponibilidadDTO horarioDisponible;
     private UnidadDTO unidadAsociada;
     private int vecesPrestado;
+    private long id;
 
     public RecursoDTO() {}
 
@@ -11,6 +12,14 @@ public class RecursoDTO {
         this.horarioDisponible = horarioDisponible;
         this.unidadAsociada = unidadAsociada;
         this.vecesPrestado = vecesPrestado;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public HorarioDisponibilidadDTO getHorarioDisponible() {

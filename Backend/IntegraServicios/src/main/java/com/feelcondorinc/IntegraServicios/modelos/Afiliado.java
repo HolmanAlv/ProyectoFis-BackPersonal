@@ -10,8 +10,8 @@ public class Afiliado extends Usuario implements AccionarAfiliado {
     private String correo;
     private String numeroContacto;
 
-    public Afiliado(int idUsuario, String contrasenia, RolUsuario rolUsuario, String nombreAfiliado, String numeroIdentificacion, String correo, String numeroContacto) {
-        super(idUsuario, contrasenia, rolUsuario);
+    public Afiliado(int idUsuario, String contrasenia, String rolUsuario, String nombreAfiliado, String numeroIdentificacion, String correo, String numeroContacto) {
+        super(idUsuario, contrasenia, RolUsuario.AFILIADO);
         this.nombreAfiliado = nombreAfiliado;
         this.numeroIdentificacion = numeroIdentificacion;
         this.correo = correo;

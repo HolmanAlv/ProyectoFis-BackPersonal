@@ -3,15 +3,19 @@ import java.util.Date;
 import java.util.List;
 import com.feelcondorinc.IntegraServicios.interfaces.AccionarAdministrador;
 
-
 public class Administrador extends Usuario implements AccionarAdministrador {
     private Unidad unidad;
     private HorarioDisponibilidad horarioLaboral;
 
-    public Administrador(int idUsuario, String contrasenia, RolUsuario rolUsuario, Unidad unidad, HorarioDisponibilidad horarioLaboral) {
-        super(idUsuario, contrasenia, rolUsuario);
+    public Administrador(int idUsuario, String contrasenia, String nombre, Unidad unidad, HorarioDisponibilidad horarioLaboral) {
+        super(idUsuario, contrasenia, RolUsuario.ADMINISTRADOR);
         this.unidad = unidad;
         this.horarioLaboral = horarioLaboral;
+    }
+    
+    // Constructor por defecto
+    public Administrador() {
+        super();
     }
 
     public Unidad getUnidad() {
@@ -29,20 +33,46 @@ public class Administrador extends Usuario implements AccionarAdministrador {
     public void setHorarioLaboral(HorarioDisponibilidad horarioLaboral) {
         this.horarioLaboral = horarioLaboral;
     }
-    // Lógica para asignar un recurso a la unidad
-
+    
+    // Métodos de la interfaz AccionarAdministrador
+    @Override
     public void asignarRecursoAUnidad(Unidad unidad, int intervaloMinimo, Date dia, int inicioRangoHorario, int finRangoHorario) {
-        // Lógica para asignar un recurso a la unidad aquí
+        // Implementación de asignarRecursoAUnidad
     }
 
-    // Implementación de los métodos de la interfaz AccionarAdministrador
-
+    @Override
     public void crearEmpleado() {
-        // Lógica para crear un nuevo empleado
+        // Implementación de crearEmpleado
     }
 
 
     public void crearAfiliado() {
-        // Lógica para crear un nuevo afiliado
+        // Implementación de crearAfiliado
+    }
+    
+    // Métodos para establecer y obtener nombre, correo electrónico e ID
+    @Override
+    public String getNombre() {
+        return super.getNombre();
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        super.setNombre(nombre);
+    }
+
+    @Override
+    public String getCorreoElectronico() {
+        return super.getCorreoElectronico();
+    }
+
+    @Override
+    public void setCorreoElectronico(String correoElectronico) {
+        super.setCorreoElectronico(correoElectronico);
+    }
+
+
+    public int getId() {
+        return super.getIdUsuario();
     }
 }

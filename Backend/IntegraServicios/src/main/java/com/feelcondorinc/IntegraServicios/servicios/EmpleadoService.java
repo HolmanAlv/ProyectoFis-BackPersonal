@@ -2,10 +2,12 @@ package com.feelcondorinc.IntegraServicios.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import com.feelcondorinc.IntegraServicios.repositorios.EmpleadoRepository;
+import com.feelcondorinc.IntegraServicios.dtos.EmpleadoDTO;
 import com.feelcondorinc.IntegraServicios.modelos.Empleado;
+import com.feelcondorinc.IntegraServicios.repositorios.EmpleadoRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmpleadoService {
@@ -17,20 +19,53 @@ public class EmpleadoService {
         this.empleadoRepository = empleadoRepository;
     }
 
-    public Empleado findById(Long id) {
-        return empleadoRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Empleado no encontrado con el ID: " + id));
+    public EmpleadoDTO getEmpleadoById(Long id) {
+        Optional<Empleado> empleadoOptional = empleadoRepository.findById(id);
+        if (empleadoOptional.isPresent()) {
+            Empleado empleado = empleadoOptional.get();
+            return convertToDto(empleado);
+        } else {
+            throw new IllegalArgumentException("Empleado no encontrado con el ID: " + id);
+        }
     }
 
-    public List<Empleado> findAll() {
-        return empleadoRepository.findAll();
+    public List<EmpleadoDTO> getAllEmpleados() {
+        List<Empleado> empleados = empleadoRepository.findAll();
+        return empleados.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
     }
 
-    public Empleado save(Empleado empleado) {
-        return empleadoRepository.save(empleado);
+    public EmpleadoDTO createEmpleado(EmpleadoDTO empleadoDTO) {
+        Empleado empleado = convertToEntity(empleadoDTO);
+        Empleado savedEmpleado = empleadoRepository.save(empleado);
+        return convertToDto(savedEmpleado);
     }
 
-    public void deleteById(Long id) {
+    public EmpleadoDTO updateEmpleado(Long id, EmpleadoDTO empleadoDTO) {
+        Optional<Empleado> empleadoOptional = empleadoRepository.findById(id);
+        if (empleadoOptional.isPresent()) {
+            Empleado empleadoToUpdate = empleadoOptional.get();
+            // Actualizar los campos del empleadoToUpdate con los datos del empleadoDTO
+            // Implementar la lógica específica para actualizar los campos necesarios
+            Empleado updatedEmpleado = empleadoRepository.save(empleadoToUpdate);
+            return convertToDto(updatedEmpleado);
+        } else {
+            throw new IllegalArgumentException("Empleado no encontrado con el ID: " + id);
+        }
+    }
+
+    public void deleteEmpleado(Long id) {
         empleadoRepository.deleteById(id);
+    }
+
+    // Método para convertir de Empleado a EmpleadoDTO
+    private EmpleadoDTO convertToDto(Empleado empleado) {
+        return new EmpleadoDTO(empleado.getId(), empleado.getNombre(), empleado.getCorreoElectronico());
+    }
+
+    // Método para convertir de EmpleadoDTO a Empleado
+    private Empleado convertToEntity(EmpleadoDTO empleadoDTO) {
+        return new Empleado(empleadoDTO.getId(), empleadoDTO.getNombre(), empleadoDTO.getCorreoElectronico());
     }
 }

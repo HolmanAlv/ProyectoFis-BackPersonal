@@ -9,8 +9,8 @@ public class Recurso {
     private String descripcion;
     private HorarioDisponibilidad horarioDisponible;
     private Unidad unidadAsociada;
-    private static int vecesPrestado;
-    
+    private int vecesPrestado;
+    private long id;
 
     public Recurso(String nombre, String descripcion, HorarioDisponibilidad horarioDisponible, Unidad unidadAsociada) {
         this.nombre = nombre;
@@ -18,6 +18,14 @@ public class Recurso {
         this.horarioDisponible = horarioDisponible;
         this.unidadAsociada = unidadAsociada;
         vecesPrestado = 0;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public HorarioDisponibilidad getHorarioDisponible() {

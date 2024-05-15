@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import com.feelcondorinc.IntegraServicios.dtos.HorarioDisponibilidadDTO;
 import com.feelcondorinc.IntegraServicios.servicios.HorarioDisponibilidadService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/horarios-disponibilidad")
 public class HorarioDisponibilidadController {
@@ -15,6 +17,11 @@ public class HorarioDisponibilidadController {
     @GetMapping("/{id}")
     public HorarioDisponibilidadDTO getHorarioDisponibilidad(@PathVariable Long id) {
         return horarioDisponibilidadService.getHorarioDisponibilidadById(id);
+    }
+
+    @GetMapping("/")
+    public List<HorarioDisponibilidadDTO> getAllHorariosDisponibilidad() {
+        return horarioDisponibilidadService.getAllHorariosDisponibilidad();
     }
 
     @PostMapping("/")
@@ -32,4 +39,3 @@ public class HorarioDisponibilidadController {
         horarioDisponibilidadService.deleteHorarioDisponibilidad(id);
     }
 }
-

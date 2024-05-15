@@ -30,6 +30,20 @@ public class AfiliadoService {
         return afiliadoRepository.save(afiliado);
     }
 
+    public Afiliado updateAfiliado(Long id, Afiliado afiliadoActualizado) {
+        Afiliado afiliado = findById(id); // Busca el afiliado por su ID
+    
+        // Actualiza los atributos del afiliado con los nuevos valores proporcionados
+        afiliado.setNombreAfiliado(afiliadoActualizado.getNombreAfiliado());
+        afiliado.setCorreo(afiliadoActualizado.getCorreo());
+        afiliado.setNumeroIdentificacion(afiliadoActualizado.getNumeroIdentificacion());
+        afiliado.setNumeroContacto(afiliadoActualizado.getNumeroContacto());
+    
+        // Guarda y retorna el afiliado actualizado
+        return afiliadoRepository.save(afiliado);
+    }
+    
+
     public void deleteById(Long id) {
         afiliadoRepository.deleteById(id);
     }

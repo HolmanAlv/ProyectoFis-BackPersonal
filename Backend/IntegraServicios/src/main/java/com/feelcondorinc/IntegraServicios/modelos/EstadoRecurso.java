@@ -13,15 +13,28 @@ public class EstadoRecurso {
 
     public static final EstadoRecurso.Estado DISPONIBLE = null;
 
+    
+
     private Estado estado;
     private String diaSemana;
-
-    public EstadoRecurso() {
-    }
+    private int id;
 
     public EstadoRecurso(Estado estado, String diaSemana) {
         this.estado = estado;
         this.diaSemana = diaSemana;
+    }
+
+    public EstadoRecurso(int estadoId, String diaSemana) {
+        this.estado = Estado.values()[estadoId];
+        this.diaSemana = diaSemana;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Estado getEstado() {
@@ -40,4 +53,3 @@ public class EstadoRecurso {
         this.diaSemana = diaSemana;
     }
 }
-

@@ -5,20 +5,32 @@ import java.util.List;
 
 public class Unidad {
     private int id;
+    private String nombre;
     private int intervaloMinimoPrestamo;
     private HorarioDisponibilidad horarioDisponible;
     private List<Administrador> administradores;
     private List<Empleado> empleados;
     private List<Recurso> recursos;
 
-    public Unidad(int id, int intervaloMinimoPrestamo, HorarioDisponibilidad horarioDisponible,
+    public Unidad() {}
+
+    public Unidad(int id, String nombre, int intervaloMinimoPrestamo, HorarioDisponibilidad horarioDisponible,
                   List<Administrador> administradores, List<Empleado> empleados, List<Recurso> recursos) {
         this.id = id;
+        this.nombre = nombre;
         this.intervaloMinimoPrestamo = intervaloMinimoPrestamo;
         this.horarioDisponible = horarioDisponible;
         this.administradores = administradores;
         this.empleados = empleados;
         this.recursos = recursos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getId() {

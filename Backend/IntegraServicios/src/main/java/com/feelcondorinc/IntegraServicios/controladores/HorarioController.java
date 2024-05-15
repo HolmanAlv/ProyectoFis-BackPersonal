@@ -14,21 +14,21 @@ public class HorarioController {
 
     @GetMapping("/{id}")
     public HorarioDTO getHorario(@PathVariable Long id) {
-        return horarioService.getHorarioById(id);
+        return horarioService.findById(id);
     }
 
     @PostMapping("/")
     public HorarioDTO createHorario(@RequestBody HorarioDTO horarioDTO) {
-        return horarioService.createHorario(horarioDTO);
+        return horarioService.save(horarioDTO);
     }
 
     @PutMapping("/{id}")
     public HorarioDTO updateHorario(@PathVariable Long id, @RequestBody HorarioDTO horarioDTO) {
-        return horarioService.updateHorario(id, horarioDTO);
+        return horarioService.update(id, horarioDTO);
     }
 
     @DeleteMapping("/{id}")
     public void deleteHorario(@PathVariable Long id) {
-        horarioService.deleteHorario(id);
+        horarioService.deleteById(id);
     }
 }

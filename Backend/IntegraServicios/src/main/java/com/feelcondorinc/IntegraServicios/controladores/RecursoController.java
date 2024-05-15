@@ -1,6 +1,8 @@
 package com.feelcondorinc.IntegraServicios.controladores;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.feelcondorinc.IntegraServicios.dtos.RecursoDTO;
 import com.feelcondorinc.IntegraServicios.servicios.RecursoService;
@@ -9,26 +11,35 @@ import com.feelcondorinc.IntegraServicios.servicios.RecursoService;
 @RequestMapping("/recursos")
 public class RecursoController {
 
+    private final RecursoService recursoService;
+
     @Autowired
-    private RecursoService recursoService;
+    public RecursoController(RecursoService recursoService) {
+        this.recursoService = recursoService;
+    }
 
     @GetMapping("/{id}")
-    public RecursoDTO getRecurso(@PathVariable Long id) {
-        return recursoService.getRecursoById(id);
+    public ResponseEntity<RecursoDTO> getRecurso(@PathVariable Long id) {
+        RecursoDTO recursoDTO = recursoService.getRecursoById(id);
+        return ResponseEntity.ok(recursoDTO);
     }
 
     @PostMapping("/")
-    public RecursoDTO createRecurso(@RequestBody RecursoDTO recursoDTO) {
-        return recursoService.createRecurso(recursoDTO);
+    public ResponseEntity<RecursoDTO> createRecurso(@RequestBody RecursoDTO recursoDTO) {
+        RecursoDTO createdRecursoDTO = recursoService.createRecurso(recursoDTO);
+        return new ResponseEntity<>(createdRecursoDTO, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public RecursoDTO updateRecurso(@PathVariable Long id, @RequestBody RecursoDTO recursoDTO) {
-        return recursoService.updateRecurso(id, recursoDTO);
+    public ResponseEntity<RecursoDTO> updateRecurso(@PathVariable Long id, @RequestBody RecursoDTO recursoDTO) {
+        RecursoDTO updatedRecursoDTO = recursoService.updateRecurso(id, recursoDTO);
+        return ResponseEntity.ok(updatedRecursoDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteRecurso(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteRecurso(@PathVariable Long id) {
         recursoService.deleteRecurso(id);
+        return ResponseEntity.noContent().build();
     }
 }
+

@@ -6,7 +6,7 @@ public class RolUsuario {
         ADMIN,
         EMPLEADO,
         AFILIADO
-        }
+    }
 
     private Rol rol;
 
